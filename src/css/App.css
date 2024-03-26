@@ -1,0 +1,97 @@
+/* Start screen */
+
+.start-screen {
+  background: url('../img/start-screen-bg.png') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+
+.start-screen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(0deg, #000, 10%, transparent);
+  z-index: 1;
+}
+
+.start-screen .subscribe-block {
+  position: absolute;
+  left: 36px;
+  top: calc(50% - 97px);
+  bottom: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  writing-mode: vertical-rl;
+}
+
+.start-screen .subscribe-block .subscribe-text {
+  margin-bottom: 15px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.start-screen .subscribe-block .icon-block .subscribe-link:not(:last-of-type) {
+  margin-bottom: 10px;
+}
+
+.slogan-block {
+  max-width: 700px;
+}
+
+.start-screen .slogan-block .title {
+  font-size: 80px;
+  font-weight: bold;
+  line-height: 90px;
+}
+
+.start-screen .scroll-down {
+  position: absolute;
+  bottom: 150px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.start-screen .scroll-down .scroll-text {
+  margin-right: 15px;
+}
+
+/* beauty-screen */
+
+.views-screen {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.views__slogan {
+  margin-bottom: 20px;
+}
+
+.views__text {
+  position: relative;
+  max-width: 90%;
+  align-self: center;
+}
+
+.views__title {
+  margin-bottom: 25px;
+}
+
+.views__img-block {
+  display: flex;
+  align-items: center;
+}
+
+.views__img-block .views__img {
+  max-height: 80%;
+}

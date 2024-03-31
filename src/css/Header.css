@@ -12,11 +12,6 @@
     background-color: transparent;
 }
 
-.header .logo-block {
-    font-size: 24px;
-    font-weight: bold;
-}
-
 .header .nav-block {
     display: flex;
     justify-content: space-between;

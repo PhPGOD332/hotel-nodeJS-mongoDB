@@ -1,14 +1,13 @@
 import React from "react";
 import "../css/Header.css";
+import Logo from "./UI/Logo/Logo";
 
 const Header = () => {
 
 
 	return (
 		<header className="header">
-			<a href="../../" className="logo-block">
-				<span className="logo-block__logo">Космос</span>
-			</a>
+			<Logo/>
 			<div className="nav-block">
 				<a href="#" className="nav-item">Главная</a>
 				<a href="#" className="nav-item">Номера</a>

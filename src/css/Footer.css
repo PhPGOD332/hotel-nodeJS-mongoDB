@@ -1,0 +1,26 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 100px 0;
+    margin-top: 150px;
+}
+
+.footer-line:not(:last-of-type) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: content-box;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.reserve-block span {
+    margin-right: 15px;
+}
+
+.copyright-block span {
+    font-size: 12px;
+    color: #ccc;
+}

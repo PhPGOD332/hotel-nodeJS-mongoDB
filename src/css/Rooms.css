@@ -1,6 +1,6 @@
 .rooms-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    /*grid-template-columns: 1fr 1fr;*/
     gap: 20px;
 }
 
@@ -84,19 +84,28 @@
     align-items: center;
 }
 
-.card__tag svg {
+.card__tag .tag-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-right: 10px;
 }
 
-.card__tag svg path {
+.card__tag .svgIcon {
+    width: 30px;
+    height: 30px;
+}
+
+.card__tag .svgIcon path {
     fill: #fff;
 }
 
 /* Image */
 
 .card__img-block {
+    width: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: flex-start;
 }
 

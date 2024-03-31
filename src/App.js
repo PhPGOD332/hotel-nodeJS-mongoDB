@@ -16,7 +16,7 @@ function App() {
         <ViewsScreen>
 
         </ViewsScreen>
-        <Rooms>
+        <Rooms style={{paddingTop: '20px'}}>
 
         </Rooms>
         <Footer/>

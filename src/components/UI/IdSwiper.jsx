@@ -6,17 +6,15 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './IdSwiper.css';
 
-const IdSwiper = (props) => {
-
-
+const IdSwiper = React.memo((props) => {
 
 	return (
-		<Swiper {...props.params} navigation>
+		<Swiper {...props.params} style={props.styles}>
 			{props.children.map(child =>
 				<SwiperSlide>{child}</SwiperSlide>
 			)}
 		</Swiper>
 	);
-};
+});
 
 export default IdSwiper;

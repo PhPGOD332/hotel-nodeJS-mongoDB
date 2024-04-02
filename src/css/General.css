@@ -1,3 +1,4 @@
+/* FONTS */
 @font-face {
     font-family: 'Open Sans';
     src: url('../fonts/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
@@ -40,6 +41,8 @@ img {
     padding: 0 100px;
 }
 
+/* SLOGAN */
+
 .slogan {
     color: #FFC178;
     text-transform: uppercase;
@@ -66,3 +69,42 @@ img {
     transition-duration: 0.3s;
     color: #ccc;
 }
+
+/* OrangeBtn */
+
+.OrangeBtn {
+    font-size: 13px;
+    font-weight: bold;
+    color: #000;
+    padding: 15px 35px;
+    background-color: #FFA343;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+.OrangeBtn:hover {
+    background-color: #cc7627;
+}
+
+/* NAVIGATION PATH */
+
+.nav-path {
+    border-bottom: 1px solid #fff;
+    padding: 10px 0;
+}
+
+.nav-path .nav-item {
+    background-color: transparent;
+    border: none;
+}
+
+.nav-path .nav-item:not(:last-of-type) {
+    margin-right: 10px;
+}
+
+.nav-path .active {
+    color: #FFC178;
+}
+

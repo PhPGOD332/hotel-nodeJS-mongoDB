@@ -1,7 +1,8 @@
 import React from "react";
-import viewsImg from '../img/views-img.png';
+import viewsImg from '../../../../img/views-img.png';
+import './Beauty.css'
 
-const ViewsScreen = () => {
+const Beauty = () => {
 
 
 	return (
@@ -19,4 +20,4 @@ const ViewsScreen = () => {
 	)
 }
 
-export default ViewsScreen;
+export default Beauty;

@@ -1,4 +1,4 @@
-.ReserveBtn {
+.OrangeBtn {
     font-size: 13px;
     font-weight: bold;
     color: #000;
@@ -10,6 +10,6 @@
     transition-duration: 0.3s;
 }
 
-.ReserveBtn:hover {
+.OrangeBtn:hover {
     background-color: #cc7627;
 }

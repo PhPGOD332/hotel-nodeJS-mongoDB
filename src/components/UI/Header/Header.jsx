@@ -1,18 +1,14 @@
 import React from "react";
-import "../css/Header.css";
-import Logo from "./UI/Logo/Logo";
+import "./Header.css";
+import Logo from "../Logo/Logo";
 
-const Header = () => {
 
+const Header = (props) => {
 
 	return (
 		<header className="header">
 			<Logo/>
-			<div className="nav-block">
-				<a href="#" className="nav-item">Главная</a>
-				<a href="#" className="nav-item">Номера</a>
-				<a href="#" className="nav-item">О нас</a>
-			</div>
+			{props.children}
 			<div className="search-block">
 				<svg className="search-icon" width="14" height="14" viewBox="0 0 15 15" fill="none"
 				     xmlns="http://www.w3.org/2000/svg">

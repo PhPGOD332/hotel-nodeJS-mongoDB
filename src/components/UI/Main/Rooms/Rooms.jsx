@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
-import "../css/Rooms.css";
-import $api from '../http';
-import RoomCard from "./UI/Rooms/RoomCard";
-import IdSwiper from "./UI/IdSwiper";
+import "./Rooms.css";
+import $api from '../../../../http';
+import RoomCard from "./RoomCard";
+import IdSwiper from "../../IdSwiper";
 import {A11y, Navigation, Pagination, Scrollbar} from "swiper/modules";
 
 const Rooms = (props) => {
@@ -32,8 +32,9 @@ const Rooms = (props) => {
 					slidesPerView: 1,
 					pagination:{ clickable: true },
 					scrollbar:{ draggable: true },
-					allowTouchMove: false
-				}}>
+					allowTouchMove: false,
+					navigation: true
+				}} styles={{padding: '0 45px'}}>
 					{cards.map(card =>
 						<RoomCard card={card}/>
 					)}

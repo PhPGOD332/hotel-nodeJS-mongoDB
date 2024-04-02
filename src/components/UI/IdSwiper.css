@@ -1,6 +1,5 @@
 .rooms-cards > .swiper {
-    overflow: unset;
-    overflow-x: clip;
+    overflow: hidden;
 }
 
 .rooms-cards > .swiper >.swiper-pagination {
@@ -8,11 +7,24 @@
     display: flex;
     width: fit-content;
     margin: 0 auto;
-    bottom: -20px;
+    bottom: -10px;
     padding: 10px 20px;
     /*border-top: 1px solid #ccc;*/
     /*border-bottom: 1px solid #ccc;*/
     /*border-radius: 5px;*/
+}
+
+.swiper .swiper-button-prev:after, .swiper-button-next:after {
+    font-size: 50px;
+    color: #9f6c23;
+}
+
+.swiper .swiper-button-prev::after {
+
+}
+
+.swiper .swiper-button-next {
+
 }
 
 .swiper-slide {

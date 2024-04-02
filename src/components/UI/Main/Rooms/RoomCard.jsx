@@ -1,9 +1,9 @@
 import React from 'react';
 import RoomImg from "./RoomImg";
-import IdSwiper from "../IdSwiper";
+import IdSwiper from "../../IdSwiper";
 import {A11y, Navigation, Pagination} from "swiper/modules";
 
-const RoomCard = (props) => {
+const RoomCard = React.memo((props) => {
 
 	const card = props.card;
 	if (!card.tags) {
@@ -43,7 +43,8 @@ const RoomCard = (props) => {
 					spaceBetween: 50,
 					slidesPerView: 1,
 					pagination:{ clickable: true },
-					scrollbar:{ draggable: true }
+					scrollbar:{ draggable: true },
+					navigation: false
 				}}>
 					{card.images.map(item =>
 						<RoomImg img={item}/>
@@ -52,6 +53,6 @@ const RoomCard = (props) => {
 			</div>
 		</div>
 	)
-}
+})
 
 export default RoomCard;

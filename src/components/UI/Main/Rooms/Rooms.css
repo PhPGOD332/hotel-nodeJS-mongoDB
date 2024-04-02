@@ -1,3 +1,7 @@
+.rooms-screen {
+    padding: 0 30px;
+}
+
 .rooms-card {
     display: flex;
     /*grid-template-columns: 1fr 1fr;*/
@@ -103,7 +107,7 @@
 /* Image */
 
 .card__img-block {
-    width: 50%;
+    width: 40%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;

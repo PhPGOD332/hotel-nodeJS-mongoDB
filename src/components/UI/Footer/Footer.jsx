@@ -1,7 +1,8 @@
 import React from 'react';
-import '../css/Footer.css';
-import Logo from "./UI/Logo/Logo";
-import Button from "./UI/Button/Button";
+import './Footer.css';
+import Logo from "../Logo/Logo";
+import Button from "../Button/Button";
+import {NavLink} from "react-router-dom";
 
 const Footer = () => {
 	return (
@@ -10,7 +11,7 @@ const Footer = () => {
 				<Logo style={{fontSize: '40px'}}/>
 				<div className="reserve-block">
 					<span>Готовы окунуться?</span>
-					<Button>Забронировать</Button>
+					<NavLink to='/reserve' className='OrangeBtn'>Забронировать</NavLink>
 				</div>
 			</div>
 			<div className="footer-line link-block">

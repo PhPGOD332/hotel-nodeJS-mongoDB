@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Calendar from "react-calendar";
-const HeaderSelector = ({select, dateNum}) => {
+const HeaderSelector = React.memo(({select, dateNum}) => {
 	const [sDate, setsDate] = useState(new Date());
 
 	function changeValue(value) {
@@ -14,6 +14,6 @@ const HeaderSelector = ({select, dateNum}) => {
 			<span className='selectedDate'>{sDate.toLocaleDateString()}</span>
 		</div>
 	);
-};
+});
 
 export default HeaderSelector;

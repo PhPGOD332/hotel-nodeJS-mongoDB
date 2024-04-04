@@ -40,33 +40,11 @@
     fill: #414141;
 }
 
+.popup-wrapper .popup-content {
+    color: #000;
+}
+
 .popup-block .popup-title {
     font-size: 30px;
     margin-bottom: 20px;
-}
-
-.visible {
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-.invisible {
-    animation: fadeOut 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
 }

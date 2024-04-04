@@ -12,9 +12,20 @@
 
 .choosing-block {
     display: flex;
+    flex-direction: column;
     background-color: #262626;
     border-radius: 10px;
     padding: 10px;
+}
+
+.choosing-block .title {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.choosing-block .inputs-block {
+    display: flex;
+    align-items: center;
 }
 
 .choosing-block .inputChooseLabel {

@@ -7,11 +7,10 @@ import 'swiper/css/pagination';
 import './IdSwiper.css';
 
 const IdSwiper = React.memo((props) => {
-
 	return (
 		<Swiper {...props.params} style={props.styles}>
-			{props.children.map(child =>
-				<SwiperSlide>{child}</SwiperSlide>
+			{props.children.map((child, index) =>
+				<SwiperSlide key={index}>{child}</SwiperSlide>
 			)}
 		</Swiper>
 	);

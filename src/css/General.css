@@ -17,10 +17,13 @@
     padding: 0;
     margin: 0;
     font-family: "Open Sans", sans-serif;
-    color: #fff;
     z-index: 2;
     /*border: 1px solid red;*/
     box-sizing: border-box;
+}
+
+html, body {
+    color: #fff;
 }
 
 #root {
@@ -32,8 +35,88 @@ a {
     color: #fff;
 }
 
+/* TEXT UNPUTS */
+
+input {
+    color: #fff;
+}
+
+.input-text {
+    position: relative;
+    font-size: 15px;
+    background-color: #000;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    padding: 5px 20px;
+    outline: none;
+}
+
+.input-text:focus {
+    background-color: #181818;
+}
+
+.input-incorrect::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    background-color: #930000;
+}
+
+/* TEXTAREAS */
+
+.text-textarea {
+    background-color: #262626;
+    color: #ccc;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    resize: none;
+    font-size: 13px;
+    width: 100%;
+
+}
+
+button {
+    color: #fff;
+}
+
 img {
     max-width: 100%;
+}
+
+/* FADEIN AND FADEOUT ELEMENTS */
+
+.visible {
+    animation: fadeIn 0.3s ease-in-out;
+    display: block;
+    opacity: 1;
+}
+
+.invisible {
+    animation: fadeOut 0.3s ease-in-out;
+    opacity: 0;
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
 
 .screen {
@@ -65,6 +148,12 @@ img {
     line-height: 60px;
 }
 
+.title {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 .white-link:hover {
     transition-duration: 0.3s;
     color: #ccc;
@@ -88,6 +177,19 @@ img {
     background-color: #cc7627;
 }
 
+/* BACK BUTTON */
+
+.backBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.backBtn svg {
+    margin-right: 10px;
+}
+
 /* NAVIGATION PATH */
 
 .nav-path {
@@ -102,6 +204,8 @@ img {
 
 .nav-path .nav-item:not(:last-of-type) {
     margin-right: 10px;
+    cursor: pointer;
+    user-select: none;
 }
 
 .nav-path .active {

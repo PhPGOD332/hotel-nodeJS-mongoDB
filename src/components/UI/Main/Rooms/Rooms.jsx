@@ -36,7 +36,7 @@ const Rooms = (props) => {
 					navigation: true
 				}} styles={{padding: '0 45px'}}>
 					{cards.map(card =>
-						<RoomCard card={card}/>
+						<RoomCard key={card._id} card={card}/>
 					)}
 				</IdSwiper>
 			</div>

@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import RoomMiniCard from "./RoomMiniCard";
+import {ChooseContext} from "../../../../pages/Reserve";
 
-const RoomChoosing = ({dates, rooms, styles}) => {
+const RoomChoosing = ({rooms, styles}) => {
+	const {dates} = useContext(ChooseContext);
+
 	return (
 		<div className={`choosing-block`} style={styles}>
 			<span className='title' style={{fontSize: '25px'}}>Результат:</span>

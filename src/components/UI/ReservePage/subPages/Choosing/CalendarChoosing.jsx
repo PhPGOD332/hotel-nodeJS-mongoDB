@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import 'react-calendar/dist/Calendar.css';
+import {ChooseContext} from "../../../../pages/Reserve";
 
-const CalendarChoosing = ({setDateNum, togglePopup, dates}) => {
+const CalendarChoosing = ({setDateNum, togglePopup}) => {
+	const {dates} = useContext(ChooseContext);
+
 	return (
 		<div className='choosing-block'>
 			<span className='title'>Выберите данные</span>
@@ -9,7 +12,7 @@ const CalendarChoosing = ({setDateNum, togglePopup, dates}) => {
 				<label htmlFor='dateOne' className="inputChooseLabel"
 				       onClick={() => {
 					       setDateNum(0);
-					       togglePopup(true);
+					       togglePopup(true, 'dates');
 				       }
 				       }>
 					<input id='dateOne' className='inputChoose' type="text" readOnly
@@ -23,7 +26,7 @@ const CalendarChoosing = ({setDateNum, togglePopup, dates}) => {
 				<label htmlFor='dateTwo' className="inputChooseLabel"
 				       onClick={() => {
 					       setDateNum(1);
-					       togglePopup(true);
+					       togglePopup(true, 'dates');
 				       }
 				       }>
 					<input id='dateTwo' className='inputChoose' type="text" readOnly
@@ -36,8 +39,7 @@ const CalendarChoosing = ({setDateNum, togglePopup, dates}) => {
 				</label>
 				<label htmlFor='clients' className="inputChooseLabel"
 				       onClick={() => {
-					       setDateNum(1);
-					       togglePopup(true);
+					       togglePopup(true, 'guests');
 				       }
 				       }>
 					<input id='clients' className='inputChoose' type="text" readOnly

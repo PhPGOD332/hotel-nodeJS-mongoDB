@@ -16,10 +16,13 @@ const Reserve = (props) => {
 	const navigate = useNavigate();
 	const [dates, setDates] = useState([new Date(), new Date()]);
 	const [chosenRoom, setChosenRoom] = useState({});
-	const [pages, setPages] = useState([]);
+	const [pages, setPages] = useState([]); // можно опустить ниже
 	const [addInfo, setAddInfo] = useState('');
 	const [contacts, setContacts] = useState({});
-	const [countGuests, setCountGuests] = useState({});
+	const [countGuests, setCountGuests] = useState({
+		adults: 0,
+		children: 0
+	});
 	const [guestsInfo, setGuestsInfo] = useState([
 
 	]);
@@ -85,7 +88,7 @@ const Reserve = (props) => {
 				<h1 className='section-title'>Бронирование номеров</h1>
 			</div>
 			<div className="content">
-				<ChooseContext.Provider value={{chooseRoom}}>
+				<ChooseContext.Provider value={{chooseRoom, dates, setDates, visibility: pages[0],  countGuests, setCountGuests, guestsInfo, setGuestsInfo}}>
 					<Choosing visibility={pages[0]} dates={dates} setDates={setDates}/>
 				</ChooseContext.Provider>
 				<FormContext.Provider value={{chosenRoom, dates, pages, setPages, backToRooms, submit, setAddInfo, contacts, setContacts, totalPrice, countNights}}>

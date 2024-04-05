@@ -9,10 +9,16 @@ const HeaderSelector = React.memo(({select, dateNum}) => {
 	}
 
 	return (
-		<div className='calendarBlock'>
-			<Calendar className='dateCalendar' onChange={changeValue} value={sDate} minDate={new Date()}/>
-			<span className='selectedDate'>{sDate.toLocaleDateString()}</span>
+		<div className='content-wrapper'>
+			<span className="popup-title">
+				Выберите дату
+			</span>
+			<div className='calendarBlock'>
+				<Calendar className='dateCalendar' onChange={changeValue} value={sDate} minDate={new Date()}/>
+				<span className='selectedDate'>Выбранная дата: {sDate.toLocaleDateString()}</span>
+			</div>
 		</div>
+
 	);
 });
 

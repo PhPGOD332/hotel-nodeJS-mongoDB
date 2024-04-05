@@ -1,16 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import CalendarChoosing from "./CalendarChoosing";
 import Popup from "../../../Popup/Popup";
 import HeaderSelector from "../../../HeaderSelector";
 import $api from "../../../../../http";
 import RoomChoosing from "./RoomChoosing";
+import {ChooseContext} from "../../../../pages/Reserve";
+import GuestsCountSelector from "./GuestsCountSelector";
 
-const Choosing = ({visibility, dates, setDates}) => {
+const Choosing = () => {
+	const {dates, visibility, setDates, countGuests} = useContext(ChooseContext);
 
 	const [showPopup, setShowPopup] = useState(false);
 	const [dateNum, setDateNum] = useState(0);
 	const [rooms, setRooms] = useState([]);
-	const [roomsVisible, setRoomsVisible] = useState(false);
+	const [popupContent, setPopupContent] = useState('');
 
 	async function fetchRooms(dates, countGuests) {
 		try {
@@ -18,6 +21,7 @@ const Choosing = ({visibility, dates, setDates}) => {
 				dates,
 				countGuests
 			}
+			console.log(countGuests);
 			const response = await $api.get('/rooms/filter', {params});
 			setRooms(response.data);
 		} catch(e) {
@@ -26,10 +30,11 @@ const Choosing = ({visibility, dates, setDates}) => {
 	}
 
 	useEffect(() => {
-		fetchRooms(dates)
-	}, [dates])
+		fetchRooms(dates, countGuests)
+	}, [dates, countGuests])
 
-	function togglePopup(state) {
+	function togglePopup(state, content) {
+		setPopupContent(content);
 		setShowPopup(state);
 	}
 
@@ -56,14 +61,17 @@ const Choosing = ({visibility, dates, setDates}) => {
 			{showPopup
 				&&
 				<Popup toggle={togglePopup} state={showPopup ? 'visible' : 'invisible'} dateNum={dateNum}>
-					<span className="popup-title">
-						Выберите дату
-					</span>
-					<HeaderSelector select={selectDate} dateNum={dateNum}/>
+
+					{popupContent === 'dates'
+						?
+							<HeaderSelector select={selectDate} dateNum={dateNum}/>
+						:
+							<GuestsCountSelector select={selectDate} dateNum={dateNum}/>
+					}
 				</Popup>
 			}
 			<CalendarChoosing setDateNum={setDateNum} togglePopup={togglePopup} dates={dates}/>
-			<RoomChoosing dates={dates} rooms={rooms} styles={{padding: '20px 0', opacity: roomsVisible, backgroundColor: '#000'}}/>
+			<RoomChoosing dates={dates} rooms={rooms} styles={{padding: '20px 0', backgroundColor: '#000'}}/>
 		</div>
 	);
 };

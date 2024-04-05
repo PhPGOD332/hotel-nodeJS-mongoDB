@@ -1,14 +1,14 @@
 import React, {useContext} from 'react';
-import './RoomMiniCard.css'
+import './Choosing.css'
 import imgSquare from '../../../../../img/room-parameters/square-icon.svg'
 import imgRooms from '../../../../../img/room-parameters/rooms-icon.svg'
 import imgPeople from '../../../../../img/room-parameters/people-icon.svg'
 import {ChooseContext} from '../../../../pages/Reserve'
 import Button from "../../../Button/Button";
 
-const RoomMiniCard = React.memo(({dates, rooms}) => {
+const RoomMiniCard = React.memo(({rooms}) => {
+	const {dates, chooseRoom, } = useContext(ChooseContext);
 	const countDays = Math.floor((dates[1] - dates[0]) / (1000 * 60 * 60 * 24))
-	const {chooseRoom} = useContext(ChooseContext);
 
 	return (
 		<div className='mini-rooms-cards'>
@@ -24,7 +24,8 @@ const RoomMiniCard = React.memo(({dates, rooms}) => {
 									</div>
 
 								</div>))
-							: ''
+							:
+							''
 						}
 					</div>
 					<div className="img-block">
@@ -39,21 +40,21 @@ const RoomMiniCard = React.memo(({dates, rooms}) => {
 								<div className="tag-icon">
 									<img className='svgIcon' src={imgPeople} alt=""/>
 								</div>
-								<span className=''>до {room.parameters[0][0].countRooms} мест</span>
+								<span className=''>до {room.parameters[0].maxSeats} мест</span>
 
 							</div>
 							<div className="card__tag">
 								<div className="tag-icon">
 									<img className='svgIcon' src={imgSquare} alt=""/>
 								</div>
-								<span className=''>{room.parameters[0][0].square} м<sup>2</sup></span>
+								<span className=''>{room.parameters[0].square} м<sup>2</sup></span>
 
 							</div>
 							<div className="card__tag">
 								<div className="tag-icon">
 									<img className='svgIcon' src={imgRooms} alt=""/>
 								</div>
-								<span className=''>{room.parameters[0][0].countRooms} комн.</span>
+								<span className=''>{room.parameters[0].countRooms} комн.</span>
 							</div>
 						</div>
 						<div className="card__bottom">

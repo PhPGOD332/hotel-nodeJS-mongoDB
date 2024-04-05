@@ -20,12 +20,31 @@ const Reserve = (props) => {
 	const [addInfo, setAddInfo] = useState('');
 	const [contacts, setContacts] = useState({});
 	const [countGuests, setCountGuests] = useState({
-		adults: 0,
+		adults: 1,
 		children: 0
 	});
 	const [guestsInfo, setGuestsInfo] = useState([
-
+		{}
 	]);
+	const totalCountGuests = +countGuests.adults + +countGuests.children;
+
+	useEffect(() => {
+		let arrayGuests = [...guestsInfo];
+
+		if (totalCountGuests < arrayGuests.length) {
+			arrayGuests.length = totalCountGuests;
+			setGuestsInfo([...arrayGuests])
+		} else {
+			let newGuests = [];
+			for (let i = 0; i < totalCountGuests - arrayGuests.length; i++) {
+				newGuests.push({});
+			}
+
+			arrayGuests = [...arrayGuests, ...newGuests]
+			setGuestsInfo([...arrayGuests])
+		}
+	}, [totalCountGuests])
+
 	const countNights = Math.round((dates[1] - dates[0]) / (1000 * 60 * 60 * 24));
 	const totalPrice = chosenRoom.price * countNights;
 
@@ -44,13 +63,24 @@ const Reserve = (props) => {
 	}
 
 	async function submit() {
-		// const reserveData = await $api.put('/reserves/addReserve', {dates, chosenRoom, addInfo, contacts, guestsInfo, totalPrice, countNights})
 		console.log(contacts);
 		console.log(addInfo);
-
-		console.log([...dates]
+		console.log(guestsInfo);
+		console.log(chosenRoom);
+		const postDatesFormat = [...dates]
 			.map(date => `${date.getFullYear()}/${date.getMonth().toString().length < 2 ? '0' + date.getMonth() : date.getMonth() + 1}/${date.getDate().toString().length < 2 ? '0' + date.getDate() : date.getDate()}`)
-		);
+		const params = {
+			postDatesFormat,
+			chosenRoom,
+			addInfo,
+			contacts,
+			guestsInfo,
+			totalPrice,
+			countNights
+		}
+
+		const reserveData = await $api.post('reserves/addReserve', {params})
+		console.log(reserveData)
 	}
 
 	return (
@@ -91,7 +121,7 @@ const Reserve = (props) => {
 				<ChooseContext.Provider value={{chooseRoom, dates, setDates, visibility: pages[0],  countGuests, setCountGuests, guestsInfo, setGuestsInfo}}>
 					<Choosing visibility={pages[0]} dates={dates} setDates={setDates}/>
 				</ChooseContext.Provider>
-				<FormContext.Provider value={{chosenRoom, dates, pages, setPages, backToRooms, submit, setAddInfo, contacts, setContacts, totalPrice, countNights}}>
+				<FormContext.Provider value={{chosenRoom, dates, pages, setPages, backToRooms, submit, setAddInfo, contacts, setContacts, countGuests, guestsInfo, setGuestsInfo, totalPrice, countNights}}>
 					<FormGuests visibility={pages[1]}/>
 				</FormContext.Provider>
 			</div>

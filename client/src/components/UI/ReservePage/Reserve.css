@@ -26,6 +26,11 @@
 .choosing-block .inputs-block {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+.choosing-block .inputs-block label {
+    margin-bottom: 15px;
 }
 
 .choosing-block .inputChooseLabel {
@@ -57,6 +62,11 @@
 
 .choosing-block .inputChooseLabel:hover svg path {
     stroke: #FFC178;
+
+}
+
+.choosing-block .LabelGuests:hover svg path {
+    fill: #FFC178;
 }
 
 .choosing-block .inputChooseLabel:not(:last-of-type) {

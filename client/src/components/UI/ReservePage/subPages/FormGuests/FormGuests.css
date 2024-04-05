@@ -36,6 +36,7 @@
 }
 
 .mini-title {
+    display: inline-block;
     font-weight: bold;
 }
 

@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import CalendarChoosing from "./CalendarChoosing";
 import Popup from "../../../Popup/Popup";
-import HeaderSelector from "../../../HeaderSelector";
+import HeaderSelector from "./HeaderSelector";
 import $api from "../../../../../http";
 import RoomChoosing from "./RoomChoosing";
 import {ChooseContext} from "../../../../pages/Reserve";
@@ -14,6 +14,16 @@ const Choosing = () => {
 	const [dateNum, setDateNum] = useState(0);
 	const [rooms, setRooms] = useState([]);
 	const [popupContent, setPopupContent] = useState('');
+	const [countGuestsInputs, setCountGuestsInputs] = useState({
+		adults: {
+			minus: 'disabled',
+			plus: ''
+		},
+		children: {
+			minus: 'disabled',
+			plus: ''
+		}
+	});
 
 	async function fetchRooms(dates, countGuests) {
 		try {
@@ -36,6 +46,9 @@ const Choosing = () => {
 	function togglePopup(state, content) {
 		setPopupContent(content);
 		setShowPopup(state);
+		if (state === true) {
+
+		}
 	}
 
 	function selectDate(curDate, dateNum) {
@@ -66,7 +79,7 @@ const Choosing = () => {
 						?
 							<HeaderSelector select={selectDate} dateNum={dateNum}/>
 						:
-							<GuestsCountSelector select={selectDate} dateNum={dateNum}/>
+							<GuestsCountSelector inputsDisabled={countGuestsInputs} setDisable={setCountGuestsInputs} select={selectDate} dateNum={dateNum}/>
 					}
 				</Popup>
 			}

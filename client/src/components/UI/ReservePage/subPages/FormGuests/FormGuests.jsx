@@ -7,9 +7,7 @@ import AddInfo from "./AddInfo";
 import Button from "../../../Button/Button";
 
 const FormGuests = () => {
-	const {dates, pages, backToRooms, submit, totalPrice, countNights} = useContext(FormContext);
-
-
+	const {dates, countGuests, pages, backToRooms, submit, totalPrice, countNights} = useContext(FormContext);
 
 
 	return (
@@ -45,7 +43,7 @@ const FormGuests = () => {
 							</tr>
 							<tr>
 								<td><span className='mini-title'>1 гость</span></td>
-								<td><span>1 взрослый</span></td>
+								<td><span>{countGuests.adults} взросл. {countGuests.children > 0  ? `, ${countGuests.children} ${countGuests.children > 4 ? 'детей' : 'ребён.'}` : ''}</span></td>
 							</tr>
 							</tbody>
 						</table>

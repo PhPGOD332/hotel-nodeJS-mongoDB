@@ -6,6 +6,6 @@ const router = new Index;
 
 router.get('/rooms', RoomsController.getAllRooms);
 router.get('/rooms/filter', RoomsController.getRoomsFiltered);
-router.put('reserves/addReserve', ReserveController.addReserve);
+router.post('/reserves/addReserve', ReserveController.addReserve);
 
 module.exports = router;

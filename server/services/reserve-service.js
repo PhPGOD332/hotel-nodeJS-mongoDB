@@ -3,50 +3,88 @@ const ClientModel = require('../models/client-model');
 
 class ReserveService {
 	async addReserve(data) {
-		const contact = data.contacts;
-		const dates = data.dates;
-		const addInfo = data.addInfo;
-		const clients = data.clients;
+		// console.log(data)
+		const contact = data.params.contacts;
+		const dates = data.params.postDatesFormat;
+		const addInfo = data.params.addInfo;
+		const clients = data.params.guestsInfo;
+		const room = data.params.chosenRoom;
+		// console.log(clients)
 
-		let clientsResult = clients;
+		let clientsResult = [];
 		const clientsIds = [];
+		const existsClients = [];
 
-		const existsClients = await ClientModel.find({
-			name: {
-				$in: {
-					$and: [
-						{
-							name: clients.map(client => client.name)
-						},
-						{
-							surname: clients.map(client => client.surname)
-						},
-						{
-							patronymic: clients.map(client => client.patronymic)
+		for(const client of clients) {
+			const existsClient = await ClientModel.find({
+				$and: [
+					{
+						name: {
+							$eq: client.name ? client.name : true
 						}
-					]
-				}
-			}
-		})
-
-		if (existsClients.length) {
-			clientsResult = clients.filter(client => existsClients.map(exists => !(client.name === exists.name) && !(client.surname === exists.surname) && !(client.patronymic === exists.patronymic)))
-		}
-
-		clientsResult.map(async client => {
-			const newClient = await ClientModel.create({
-				name: client.name,
-				surname: client.surname,
-				patronymic: client.patronymic,
-				mail: client.mail,
-				phone: client.phone
+					},
+					{
+						surname: {
+							$eq: client.surname ? client.surname : true
+						}
+					},
+					{
+						patronymic: {
+							$eq: client.patronymic ? client.patronymic : true
+						}
+					},
+				]
 			})
 
-			clientsIds.push(newClient._id);
-		})
+			if (existsClient.length > 0) {
+				existsClients.push(existsClient[0]);
+			}
+		}
+
+		if (existsClients.length !== clients.length && existsClients.length < clients.length) {
+			clientsResult = clients.filter(client => {
+				return existsClients.length ? existsClients.some(exists =>
+					!(client.name === exists.name ? exists.name : false) &&
+					!(client.surname === exists.surname ? exists.surname : false) &&
+					!(client.patronymic === exists.patronymic ? exists.patronymic : false))
+					:
+					client
+			})
+
+			for(const client of clientsResult) {
+				const clientAdd = await ClientModel.create({
+					name: client.name,
+					surname: client.surname,
+					patronymic: client.patronymic,
+					mail: client.mail,
+					phone: client.phone
+				})
+			}
+		}
+
+		for(const client of clients) {
+			const newClient = await ClientModel.find({
+				$and: [
+					{
+						name: { $eq: client.name }
+					},
+					{
+						surname: { $eq: client.surname }
+					},
+					{
+						patronymic: { $eq: client.patronymic }
+					},
+				]
+			}).select('_id')
+			console.log(newClient)
+			clientsIds.push(newClient[0]._id);
+		}
+
+		console.log(clientsIds)
+
 
 		const newReserve = await ReserveModel.create({
-			room: data.room._id,
+			room: room._id,
 			clients: clientsIds,
 			dateStart: dates[0],
 			dateEnd: dates[1],

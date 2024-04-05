@@ -24,9 +24,9 @@ class RoomService {
 						$nin: reserves.map(reserve => reserve.room)
 					}
 				},
-				{ parameters: {
-					maxSeats: {$gte: totalCount}
-				} }
+				{
+					"parameters.maxSeats": { $gte: totalCount }
+				}
 			]
 		}).populate('tags');
 

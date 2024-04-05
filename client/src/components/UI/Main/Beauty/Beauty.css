@@ -1,0 +1,30 @@
+/* beauty-screen */
+
+.views-screen {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.views__slogan {
+    margin-bottom: 20px;
+}
+
+.views__text {
+    position: relative;
+    max-width: 90%;
+    align-self: center;
+}
+
+.views__title {
+    margin-bottom: 25px;
+}
+
+.views__img-block {
+    display: flex;
+    align-items: center;
+}
+
+.views__img-block .views__img {
+    max-height: 80%;
+}

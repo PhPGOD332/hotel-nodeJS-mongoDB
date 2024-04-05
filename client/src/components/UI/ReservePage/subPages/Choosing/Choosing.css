@@ -1,0 +1,132 @@
+.mini-rooms-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.mini-rooms-cards__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*cursor: pointer;*/
+    background-color: #262626;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* IMAGE */
+
+.mini-rooms-cards__card .tags {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 60%);
+    border-radius: 10px;
+
+}
+
+.mini-rooms-cards__card .tags .tag-icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mini-rooms-cards__card .tags .tag-icon:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(35, 35, 35, 0.2);
+    z-index: 10;
+}
+
+.mini-rooms-cards__card .tags .tag-icon img {
+    width: 25px;
+}
+
+.mini-rooms-cards__card .img-block {
+    display: flex;
+    justify-content: center;
+    background-color: #262626;
+    border-radius: 10px;
+    max-width: 100%;
+    height: 350px;
+    margin-bottom: 10px;
+    /*padding: 10px;*/
+}
+
+.mini-rooms-cards__card .img-block img {
+    object-fit: cover;
+    /*border-top-right-radius: 10px;*/
+    /*border-top-left-radius: 10px;*/
+    border-radius: 10px;
+}
+
+/* DESCRIPTION */
+
+.mini-rooms-cards__card .description-block {
+
+}
+
+.mini-rooms-cards__card .title {
+    align-self: center;
+    margin-bottom: 15px;
+
+}
+
+.mini-rooms-cards__card .parameters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.mini-rooms-cards__card .parameters .card__tag {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.mini-rooms-cards__card .parameters .card__tag .svgIcon {
+    width: 18px;
+    height: 18px;
+}
+
+.mini-rooms-cards__card .parameters .card__tag:not(:last-of-type) {
+    margin-right: 15px;
+}
+
+.mini-rooms-cards__card .card__bottom {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 10px;
+
+}
+
+.mini-rooms-cards__card .card__bottom .dates {
+    position: absolute;
+    font-size: 11px;
+    top: -5px;
+    color: #cccccc;
+}
+
+.mini-rooms-cards__card .card__price {
+    color: #FFC178;
+    font-size: 18px;
+}
+
+.mini-rooms-cards__card .card__btn {
+    padding: 12px 20px;
+    font-size: 12px;
+}

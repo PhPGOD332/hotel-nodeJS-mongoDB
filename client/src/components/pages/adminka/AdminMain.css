@@ -1,0 +1,15 @@
+.page {
+    padding-left: 150px;
+}
+
+.page .wrapper {
+    padding-top: 30px;
+}
+
+.section-title {
+    font-weight: bold;
+}
+
+.menu-bar .active {
+    background-color: #181818;
+}

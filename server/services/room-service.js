@@ -3,7 +3,7 @@ const RoomModel = require('../models/room-model')
 const ReservesModel = require("../models/reserves-model");
 class RoomService {
 	async getAllRooms() {
-		const rooms = await RoomModel.find().populate('tags');
+		const rooms = await RoomModel.find().populate('tags').select('-__v');
 		return rooms;
 	}
 

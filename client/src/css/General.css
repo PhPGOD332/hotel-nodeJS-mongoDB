@@ -35,6 +35,10 @@ a {
     color: #fff;
 }
 
+.active {
+    color: #FFC178;
+}
+
 /* TEXT UNPUTS */
 
 input {
@@ -87,6 +91,11 @@ img {
     max-width: 100%;
 }
 
+label {
+    display: flex;
+    flex-direction: column;
+}
+
 /* FADEIN AND FADEOUT ELEMENTS */
 
 .visible {
@@ -98,7 +107,7 @@ img {
 .invisible {
     animation: fadeOut 0.3s ease-in-out;
     opacity: 0;
-    display: none;
+    display: none !important;
 }
 
 @keyframes fadeIn {

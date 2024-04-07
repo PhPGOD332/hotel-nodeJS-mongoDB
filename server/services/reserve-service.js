@@ -80,9 +80,6 @@ class ReserveService {
 			clientsIds.push(newClient[0]._id);
 		}
 
-		console.log(clientsIds)
-
-
 		const newReserve = await ReserveModel.create({
 			room: room._id,
 			clients: clientsIds,

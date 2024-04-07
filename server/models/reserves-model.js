@@ -7,7 +7,7 @@ const ReservesSchema = new Schema({
 	dateEnd: {type: Date, required: true},
 	// sumPrice: {type: String, required: true},
 	contact: {type: Object, required: true},
-	addInfo: {type: String}
+	addInfo: {type: String, default: ''}
 })
 
 module.exports = model('Reserve', ReservesSchema);

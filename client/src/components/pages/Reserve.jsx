@@ -63,10 +63,6 @@ const Reserve = (props) => {
 	}
 
 	async function submit() {
-		console.log(contacts);
-		console.log(addInfo);
-		console.log(guestsInfo);
-		console.log(chosenRoom);
 		const postDatesFormat = [...dates]
 			.map(date => `${date.getFullYear()}/${date.getMonth().toString().length < 2 ? '0' + date.getMonth() : date.getMonth() + 1}/${date.getDate().toString().length < 2 ? '0' + date.getDate() : date.getDate()}`)
 		const params = {
@@ -80,7 +76,7 @@ const Reserve = (props) => {
 		}
 
 		const reserveData = await $api.post('reserves/addReserve', {params})
-		console.log(reserveData)
+
 	}
 
 	return (

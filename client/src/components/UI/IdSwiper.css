@@ -1,0 +1,66 @@
+.rooms-cards > .swiper {
+    overflow: hidden;
+}
+
+.rooms-cards > .swiper >.swiper-pagination {
+    position: inherit;
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    bottom: -10px;
+    padding: 10px 20px;
+    /*border-top: 1px solid #ccc;*/
+    /*border-bottom: 1px solid #ccc;*/
+    /*border-radius: 5px;*/
+}
+
+.swiper .swiper-button-prev:after, .swiper-button-next:after {
+    font-size: 50px;
+    color: #9f6c23;
+}
+
+.swiper .swiper-button-prev::after {
+
+}
+
+.swiper .swiper-button-next {
+
+}
+
+.swiper-slide {
+    height: auto;
+}
+
+.swiper-slide img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+    right: 10px;
+    bottom: 10px;
+}
+
+.swiper-pagination {
+    display: flex;
+    justify-content: flex-end;
+    right: 10px;
+    bottom: 10px;
+}
+
+/*.swiper-pagination span {*/
+/*    background: #fff;*/
+/*    */
+/*}*/
+
+.swiper-pagination .swiper-pagination-bullet {
+    opacity: 1;
+    border: 1px solid #FFC178;
+    background-color: rgba(255, 255, 255, 80%);
+    width: 18px;
+    height: 18px;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+    background-color: rgba(255, 193, 120, 100%);
+}

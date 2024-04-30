@@ -1,0 +1,105 @@
+.form-page {
+
+}
+
+.form-section {
+    border-bottom: 1px solid #414141;
+    padding: 15px 0;
+}
+
+.form {
+    background-color: #262626;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.sub-section {
+    padding: 15px 20px;
+}
+
+.sub-section:not(:last-of-type) {
+    border-bottom: 1px solid #414141;
+}
+
+.form-section .title-form {
+    margin-bottom: 15px;
+}
+
+.form-section .form-text {
+    font-size: 13px;
+}
+
+/* MINI TITLE */
+
+.sub-title-block {
+    margin-bottom: 15px;
+}
+
+.mini-title {
+    display: inline-block;
+    font-weight: bold;
+}
+
+/* PREV ITEM */
+
+.prev__item:not(:last-of-type) {
+    border-bottom: 1px solid #9f6c23;
+}
+
+.prev__item .title {
+    font-size: 20px;
+}
+
+.prev__item span {
+    font-size: 12px;
+}
+
+.prev__info .info-table tr td:last-of-type {
+    padding-left: 20px  ;
+}
+
+.prev__price {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.prev__price .price {
+    color: #FFC178;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+/* INPUTS BLOCK */
+
+.inputs {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.inputs input {
+    margin-bottom: 15px;
+}
+
+.inputs input:not(:last-of-type) {
+    margin-right: 20px;
+}
+
+/* BUTTON BLOCK */
+
+.section-submit .btn-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.section-submit .btn-block .mini-title {
+    margin-bottom: 10px;
+}
+
+.section-submit .OrangeBtn {
+    text-transform: uppercase;
+}

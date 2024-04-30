@@ -1,0 +1,40 @@
+.table-block {
+    width: fit-content;
+}
+
+.table-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.data-table {
+    background-color: #262626;
+    /*padding: 10px;*/
+    border-radius: 10px;
+    border: 1px solid #fff;
+    margin-top: 10px;
+}
+
+.data-table td {
+    padding: 10px;
+    text-align: center;
+}
+
+.data-table .t-head td {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.data-table .t-body td {
+    font-size: 15px;
+}
+
+.operations {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.operations .OrangeBtn:not(:last-of-type) {
+    margin-right: 5px;
+}
